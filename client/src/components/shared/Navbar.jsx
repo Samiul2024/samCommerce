@@ -8,9 +8,11 @@ import {
 
 import Container from "./Container";
 import LanguageSwitcher from "./LanguageSwitcher";
+import useCartStore from "../../store/useCartStore";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const cart = useCartStore((state) => state.cart);
 
   const navItems = [
     {
@@ -40,10 +42,9 @@ const Navbar = () => {
       key={item.path}
       to={item.path}
       className={({ isActive }) =>
-        `font-medium transition-all hover:text-orange-500 ${
-          isActive
-            ? "text-orange-500"
-            : "text-gray-700"
+        `font-medium transition-all hover:text-orange-500 ${isActive
+          ? "text-orange-500"
+          : "text-gray-700"
         }`
       }
     >
@@ -69,13 +70,13 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher />
 
-            <button className="relative">
+            <Link to="/cart" className="relative">
               <HiOutlineShoppingBag className="text-3xl text-orange-500" />
 
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                0
+                {cart.length}
               </span>
-            </button>
+            </Link>
           </div>
 
           <button
