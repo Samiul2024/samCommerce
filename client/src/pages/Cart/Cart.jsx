@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import useCartStore from "../../store/useCartStore";
 
 const Cart = () => {
@@ -115,9 +116,12 @@ const Cart = () => {
             </span>
           </div>
 
-          <button className="w-full bg-orange-500 text-white py-3 rounded-xl mt-6">
-            Proceed to Checkout
-          </button>
+          <Link
+  to="/checkout"
+  className="block text-center w-full bg-orange-500 text-white py-3 rounded-xl mt-6"
+>
+  Proceed to Checkout
+</Link>
         </div>
 
       </div>

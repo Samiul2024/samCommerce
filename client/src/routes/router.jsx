@@ -9,6 +9,7 @@ import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Bundles from "../pages/Bundles/Bundles";
 import Cart from "../pages/Cart/Cart";
+import Checkout from "../pages/Checkout/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
       },
     ],
   },

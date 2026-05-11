@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const productRoutes = require("./routes/product.routes");
+const orderRoutes = require("./routes/order.routes");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.get("/", (req, res) => {
   res.send({
