@@ -4,3 +4,6 @@ dist
 build
 .DS_Store
 commits.txt
+
+.env
+.env.local
