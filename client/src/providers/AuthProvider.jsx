@@ -2,6 +2,7 @@ import {
   getAuth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   updateProfile,
   signOut,
 } from "firebase/auth";
@@ -20,7 +21,6 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -45,6 +45,16 @@ const AuthProvider = ({ children }) => {
     );
   };
 
+  const loginUser = (email, password) => {
+    setLoading(true);
+
+    return signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+  };
+
   const updateUserProfile = (
     name,
     photoURL
@@ -62,8 +72,12 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     loading,
+
     auth,
+
     registerUser,
+    loginUser,
+
     updateUserProfile,
     logoutUser,
   };
