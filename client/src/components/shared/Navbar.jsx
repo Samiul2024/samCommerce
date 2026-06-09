@@ -42,9 +42,8 @@ const Navbar = () => {
       key={item.path}
       to={item.path}
       className={({ isActive }) =>
-        `font-medium transition-all hover:text-orange-500 ${isActive
-          ? "text-orange-500"
-          : "text-gray-700"
+        `font-medium transition-all hover:text-orange-500 ${
+          isActive ? "text-orange-500" : "text-gray-700"
         }`
       }
     >
@@ -70,6 +69,13 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher />
 
+            <Link
+              to="/register"
+              className="px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
+            >
+              Register
+            </Link>
+
             <Link to="/cart" className="relative">
               <HiOutlineShoppingBag className="text-3xl text-orange-500" />
 
@@ -93,6 +99,13 @@ const Navbar = () => {
           <Container>
             <div className="py-6 flex flex-col gap-5">
               {navLinks}
+
+              <Link
+                to="/register"
+                className="px-4 py-2 bg-orange-500 text-white rounded-lg font-medium text-center hover:bg-orange-600 transition"
+              >
+                Register
+              </Link>
 
               <div className="pt-3">
                 <LanguageSwitcher />

@@ -10,6 +10,7 @@ import Contact from "../pages/Contact/Contact";
 import Bundles from "../pages/Bundles/Bundles";
 import Cart from "../pages/Cart/Cart";
 import Checkout from "../pages/Checkout/Checkout";
+import Register from "../pages/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,10 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-
+      {
+        path: "/register",
+        element: <Register />,
+      },
       {
         path: "shop",
         element: <Shop />,
