@@ -13,6 +13,8 @@ import Checkout from "../pages/Checkout/Checkout";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 
+import PrivateRoute from "./PrivateRoute";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,22 +36,18 @@ const router = createBrowserRouter([
         path: "shop",
         element: <Shop />,
       },
-
       {
         path: "product/:id",
         element: <ProductDetails />,
       },
-
       {
         path: "about",
         element: <About />,
       },
-
       {
         path: "contact",
         element: <Contact />,
       },
-
       {
         path: "bundles",
         element: <Bundles />,
@@ -60,7 +58,8 @@ const router = createBrowserRouter([
       },
       {
         path: "checkout",
-        element: <Checkout />,
+        element: (<PrivateRoute> <Checkout /> </PrivateRoute>
+        ),
       },
     ],
   },
